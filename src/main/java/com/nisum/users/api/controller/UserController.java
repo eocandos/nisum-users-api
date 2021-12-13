@@ -1,5 +1,7 @@
 package com.nisum.users.api.controller;
 
+import com.nisum.users.api.constants.Messages;
+import com.nisum.users.api.entity.Message;
 import com.nisum.users.api.entity.User;
 import com.nisum.users.api.service.UserService;
 import com.nisum.users.api.utils.PasswordValidator;
@@ -35,10 +37,10 @@ public class UserController {
     public ResponseEntity create(@RequestBody User user) {
 
         if(!isValidEmail(user.getEmail())){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("¡Correo incorrecto!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.INVALID_EMAIL));
         }
         if(!PasswordValidator.isValid(user.getPassword())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Favor validar el formato de la contraseña");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.PLEASE_VALIDATE_PASSWORD_FORMAT));
         }
 
         try {
@@ -49,10 +51,10 @@ public class UserController {
                 userService.save(user);
                 return ResponseEntity.ok(user);
             } else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("¡Correo ya registrado!");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.EMAIL_EXIST));
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No fue posible registrar el usuario");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.USER_CREATION_NOT_POSSIBLE));
         }
 
     }
