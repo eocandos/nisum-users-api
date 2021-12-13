@@ -2,6 +2,7 @@ package com.nisum.users.api.controller;
 
 import com.nisum.users.api.entity.User;
 import com.nisum.users.api.service.UserService;
+import com.nisum.users.api.utils.PasswordValidator;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,31 +33,21 @@ public class UserController {
     @PostMapping("user")
     public ResponseEntity create(@RequestBody User user) {
 
-        if(isValidEmail(user.getEmail())){
-            try {
-                userService.save(user);
-                return ResponseEntity.ok(user);
-            } catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No fue posible registrar el usuario");
-            }
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Correo incorrecto");
+        if(!isValidEmail(user.getEmail())){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("¡Correo incorrecto!");
+        }
+        if(!PasswordValidator.isValid(user.getPassword())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Favor validar el formato de la contraseña");
+        }
+
+        try {
+            userService.save(user);
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No fue posible registrar el usuario");
         }
 
     }
-
-    /* @PostMapping("user")
-    public User login(
-            @RequestParam("user") String username,
-            @RequestParam("password") String pwd) {
-
-        String token = getJWTToken(username);
-        User user = new User();
-        user.setUser(username);
-        user.setToken(token);
-        return user;
-
-    }*/
 
     private boolean isValidEmail(String email) {
         String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";

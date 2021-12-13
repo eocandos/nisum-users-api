@@ -19,7 +19,7 @@ public class User {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="seq")
     private Integer id;
     // private String user;
-    @JsonIgnore
+    // @JsonIgnore
     private String password;
     private String token;
 
