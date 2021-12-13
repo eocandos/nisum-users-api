@@ -3,12 +3,7 @@ package com.nisum.users.api.service.impl;
 import com.nisum.users.api.entity.User;
 import com.nisum.users.api.repository.UserRepository;
 import com.nisum.users.api.service.UserService;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -39,30 +34,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-        String token = getJWTToken(user.getEmail());
-        user.setToken(token);
         userRepository.save(user);
     }
 
-    private String getJWTToken(String username) {
-        String secretKey = "mySecretKey";
-        List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-                .commaSeparatedStringToAuthorityList("ROLE_USER");
-
-        String token = Jwts
-                .builder()
-                .setId("softtekJWT")
-                .setSubject(username)
-                .claim("authorities",
-                        grantedAuthorities.stream()
-                                .map(GrantedAuthority::getAuthority)
-                                .collect(Collectors.toList()))
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 600000))
-                .signWith(SignatureAlgorithm.HS512,
-                        secretKey.getBytes()).compact();
-
-        return "Bearer " + token;
+    @Override
+    public void update(User user) {
+        userRepository.save(user);
     }
 
 }

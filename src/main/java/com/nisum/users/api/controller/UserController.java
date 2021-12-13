@@ -21,11 +21,21 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /**
+     * Get all users
+     * @return List<User>
+     */
     @GetMapping("user")
     public List<User> getUsers() {
         return userService.findAll();
     }
 
+
+    /**
+     * Create one User
+     * @param user
+     * @return ResponseEntity
+     */
     @PostMapping("user")
     public ResponseEntity create(@RequestBody User user) {
 
@@ -49,9 +59,27 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.USER_CREATION_NOT_POSSIBLE));
         }
-
     }
 
+    /**
+     * Edit one User
+     * @param user
+     * @return ResponseEntity
+     */
+    @PutMapping("user")
+    public ResponseEntity edit(@RequestBody User user) {
+        try {
+            Optional u = userService.findOne(user.getId());
+            if(u.isPresent()) {
+                userService.save(user);
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.ID_DONT_EXIST));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.USER_EDITION_NOT_POSSIBLE));
+        }
+    }
 
 
 }

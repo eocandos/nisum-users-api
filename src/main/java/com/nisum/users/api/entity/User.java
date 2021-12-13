@@ -18,8 +18,6 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="seq")
     private Integer id;
-    // private String user;
-    // @JsonIgnore
     private String password;
     private String token;
 
