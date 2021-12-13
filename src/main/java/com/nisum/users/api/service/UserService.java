@@ -10,6 +10,8 @@ public interface UserService {
 
     Optional<User> findOne(Integer id);
 
+    Optional<User> findByEmail(String email);
+
     List<User> findAll();
 
     void save(User user);

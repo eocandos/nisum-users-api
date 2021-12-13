@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -41,8 +42,15 @@ public class UserController {
         }
 
         try {
-            userService.save(user);
-            return ResponseEntity.ok(user);
+            Optional<User> u = userService.findByEmail(user.getEmail());
+            if(!u.isPresent()){
+                String token = getJWTToken(user.getEmail());
+                user.setToken(token);
+                userService.save(user);
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("¡Correo ya registrado!");
+            }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No fue posible registrar el usuario");
         }

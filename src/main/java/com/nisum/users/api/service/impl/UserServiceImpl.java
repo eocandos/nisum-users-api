@@ -28,6 +28,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
     public List<User> findAll() {
         return userRepository.findAll();
     }
@@ -36,6 +41,7 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
         String token = getJWTToken(user.getEmail());
         user.setToken(token);
+        userRepository.save(user);
     }
 
     private String getJWTToken(String username) {
