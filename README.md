@@ -11,6 +11,7 @@
 - Maven
 - Autenticación con Token JWT
 - Docker
+- AWS
 
 ### Funcionalidades
 
