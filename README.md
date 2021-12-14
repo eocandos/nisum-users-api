@@ -42,7 +42,7 @@
 
 - clonar el proyecto ```$ git clone https://github.com/eocandos/nisum-users-api-0.1.git ```
 - Ir al directorio del proyecto
-```$ cd nisum-users-api/nisum-users-api-0.1/ ``` 
+```$ cd nisum-users-api-0.1/ ``` 
 - Generar jar del proyecto
 ```$ mvn clean && mvn install ```
 - Correr proyecto con Maven ```$ mvn spring-boot:run  ```
