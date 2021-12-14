@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "ca0b5b77-b536-4d7f-9c34-dd2b0c19f96d",
+		"name": "NISUM-USER-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"GeneralPass183*\",\n    \"name\": \"Megan Fox\",\n    \"email\": \"megan@mail.com\",\n    \"phones\": [\n        {\n            \"cityCode\": \"10\",\n            \"countryCode\": \"100\",\n            \"phoneNumber\": 123456\n        },\n        {\n            \"cityCode\": \"25\",\n            \"countryCode\": \"24\",\n            \"phoneNumber\": 78945654\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDEzODg1LCJleHAiOjE2Mzk0MTQ0ODV9.fWn-rdlWti91nRfGipy-kf_E5VClWztrHgqSezv_6ekCMk-xVJDEupf4Ku0IOl9CxmFNyFBgz8TSzPaL2oJzmw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"password\": 123,\n    \"token\": \"Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDEzODg1LCJleHAiOjE2Mzk0MTQ0ODV9.fWn-rdlWti91nRfGipy-kf_E5VClWztrHgqSezv_6ekCMk-xVJDEupf4Ku0IOl9CxmFNyFBgz8TSzPaL2oJzmw\",\n    \"name\": \"Erick Ocando Sanchez\",\n    \"email\": \"e@mail.com\",\n    \"phones\":  [\n            {\n                \"id\": 52,\n                \"cityCode\": \"10\",\n                \"countryCode\": \"100\",\n                \"phoneNumber\": 1111111\n            }\n        ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDIyOTQwLCJleHAiOjE2Mzk0MjM1NDB9.EuENjlCSavJNlYJ1VtB__gJmjtebvxVGV257PpKwbF5eLmKGLAmksQV4lgL8WD6COpG5YMwIFIKKohkBaOFbKA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
