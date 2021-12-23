@@ -18,7 +18,7 @@ public class JWTToken {
 
         String token = Jwts
                 .builder()
-                .setId("softtekJWT")
+                .setId("nisumJWT")
                 .setSubject(username)
                 .claim("authorities",
                         grantedAuthorities.stream()
@@ -29,7 +29,7 @@ public class JWTToken {
                 .signWith(SignatureAlgorithm.HS512,
                         secretKey.getBytes()).compact();
 
-        return "Bearer " + token;
+        return token;
     }
 
 }

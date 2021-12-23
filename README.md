@@ -1,5 +1,6 @@
 # Prueba Técnica Java para NISUM - API RESTful de creación de usuarios.
 ### Autor: Erick Ocando - Fecha: 12/2021
+#### Última actualización: 22 dic 2021
 
 ### Tecnologías
 
@@ -40,9 +41,9 @@
 ### Ejecución de la Aplicación
 #### Ejecución con maven y Java (Necesario maven y java 11 instalados) 
 
-- clonar el proyecto ```$ git clone https://github.com/eocandos/nisum-users-api-0.1.git ```
+- clonar el proyecto ```$ git clone https://github.com/eocandos/nisum-users-api.git```
 - Ir al directorio del proyecto
-```$ cd nisum-users-api-0.1/ ``` 
+```$ cd nisum-users-api/ ``` 
 - Generar jar del proyecto
 ```$ mvn clean && mvn install ```
 - Correr proyecto con Maven ```$ mvn spring-boot:run  ```
@@ -50,9 +51,9 @@
 
 #### Ejecución con Docker (Necesario docker instalado)
 
-- clonar el proyecto ```$ git clone https://github.com/eocandos/nisum-users-api-0.1.git ```
+- clonar el proyecto ```$ git clone https://github.com/eocandos/nisum-users-api.git ```
 - Ir al directorio del proyecto
-  ```$ cd nisum-users-api-0.1/ ```
+  ```$ cd nisum-users-api/ ```
 - Generar jar del proyecto ```$ mvn clean && mvn install ```
 - Crear imagen ```$ docker build -t nisum-users-api:v0.1 . ``` *Si es un sistema operativo linux a lo mejor deba 
 ejecutar este comando como administrador, es decir, con sudo ```$ sudo docker build -t nisum-users-api:v0.1 .```
@@ -71,13 +72,12 @@ ejecutar este comando como administrador, es decir, con sudo ```$ sudo docker bu
 
 #### En local
 
-- Crear Usuario | Abrimos el endpoint en la colección para crear un nuevo usuario
-![create-user](./github_images/create-user-local.png)
-- Tomamos el token que nos regresa la API luego de la autenticación para proceder con las siguientes peticiones
-![token](./github_images/token.png)
-- Obtener usuarios | Abrimos el endpoint para obtener los usuarios registrados y establecemos el header de la solicitud usando el token que nos entregó el API
+- Crear Usuario | Abrimos el endpoint en la colección para crear un nuevo usuario y 
+tomamos el token que nos regresa la API luego de la autenticación para proceder con las siguientes peticiones
+![token](./github_images/create-user-local.png)
+- Obtener usuarios | Abrimos el endpoint para obtener los usuarios registrados y establecemos el tipo de Autenticación de la solicitud (Barer token en este caso) empleando el token que nos entregó la API
 ![users-registered](./github_images/set-token-get-user.png)
-- Realizamos la petición de obtener todos los usuarios registrados
+- Realizamos la petición de obtener una lista de todos los usuarios registrados desde el más antiguo registrado hasta el más reciente
 ![users-registered](./github_images/get-users.png)
 - Validación y restricción si el correo a registrar ya existe
 ![users-registered](./github_images/emai-exist.png)
