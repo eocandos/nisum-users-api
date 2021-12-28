@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ca0b5b77-b536-4d7f-9c34-dd2b0c19f96d",
+		"_postman_id": "4d16128f-8aaf-4836-822d-5904cac607be",
 		"name": "NISUM-USER-API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"password\": \"GeneralPass183*\",\n    \"name\": \"Megan Fox\",\n    \"email\": \"megan@mail.com\",\n    \"phones\": [\n        {\n            \"cityCode\": \"10\",\n            \"countryCode\": \"100\",\n            \"phoneNumber\": 123456\n        },\n        {\n            \"cityCode\": \"25\",\n            \"countryCode\": \"24\",\n            \"phoneNumber\": 78945654\n        }\n    ]\n}",
+					"raw": "{\n    \"password\": \"GeneralPass183*\",\n    \"name\": \"Megan Fox\",\n    \"email\": \"megan3@mail.com\",\n    \"phones\": [\n        {\n            \"cityCode\": \"10\",\n            \"countryCode\": \"100\",\n            \"phoneNumber\": 123456\n        },\n        {\n            \"cityCode\": \"25\",\n            \"countryCode\": \"24\",\n            \"phoneNumber\": 78945654\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,14 +70,18 @@
 		{
 			"name": "Get User list",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJuaXN1bUpXVCIsInN1YiI6Im1lZ2FuM0BtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDAyMjAwMDksImV4cCI6MTY0MDIyMDYwOX0.ulfQ9QPqdaAeW3zbzzctXH1FafwWUQCm03pmyyZL0veBdrxYXb7j_z9Z0i8u3pI2MD4T2GT9du7pzAcrRXe0Cg",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDIyOTQwLCJleHAiOjE2Mzk0MjM1NDB9.EuENjlCSavJNlYJ1VtB__gJmjtebvxVGV257PpKwbF5eLmKGLAmksQV4lgL8WD6COpG5YMwIFIKKohkBaOFbKA",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
 					"raw": "http://localhost:8080/user",
 					"protocol": "http",
