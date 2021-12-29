@@ -1,6 +1,6 @@
 # Prueba Técnica Java para NISUM - API RESTful de creación de usuarios.
 ### Autor: Erick Ocando - Fecha: 12/2021
-#### Última actualización: 22 dic 2021
+#### Última actualización: 28 dic 2021
 
 ### Tecnologías
 
@@ -11,6 +11,7 @@
 - H2
 - Maven
 - Autenticación con Token JWT
+- Pruebas Unitarias con Junit, Mockito y Jacoco
 - Docker
 - AWS
 
@@ -29,8 +30,9 @@
 5. Validación y restricción expresión regular en la contraseña para validar formato correcto
 6. Persistencia del token junto a la información del Usuario
 7. Formato en los mensajes: {"mensaje": "mensaje de error"}
-8. Funcionalidad adicional actualizar Usuario
-9. Ejecución con maven o con Docker
+8. Ejecución con maven o con Docker
+9. Pruebas unitarias con junit, mockito y reportes en jacoco
+
 
 ### Diagrama Autenticación empleado (Usando token JWT)
 ![create-user](./github_images/jwt-diagram.png)
@@ -98,3 +100,23 @@ Podemos realizar las mismas peticiones pero ahora usando la otra colección que 
 ![users-registered](./github_images/create-user-remote.png)
 - Obtener Usuarios registrados (No olvidemos tomar el token activo e incluirlo en las cabeceras de la petición)
 ![users-registered](./github_images/get-users-remote.png)
+
+#### Pruebas Unitarias
+
+Para generar el reporte podemos ejecutar el comando ```$ mvn clean site ``` el cual generará con jacoco el reporte que
+se muestra a continuación en el directorio del proyecto raiz/targe/site/jacoco que podemos abrir ejecutando el archivo
+index.html
+
+![token](./github_images/jacoco-report-folder.png)
+
+Podemos observar el resumen de las pruebas
+
+![token](./github_images/jacoco-report-summary.png)
+![token](./github_images/jacoco-report-user-service-summary.png)
+
+Y una vista de la cobertura realizada en la clase UserController
+
+![token](./github_images/jacoco-report-user-controller-coberture.png)
+
+Aún faltan pruebas pero se deja la base para su posible continuación
+
