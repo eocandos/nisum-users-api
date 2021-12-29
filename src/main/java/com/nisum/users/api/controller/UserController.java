@@ -46,10 +46,12 @@ public class UserController {
                     userService.save(user);
                     return ResponseEntity.ok(user);
                 } else {
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.EMAIL_EXIST));
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                            .body(new Message(Messages.EMAIL_EXIST));
                 }
             } catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.USER_CREATION_NOT_POSSIBLE));
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(new Message(Messages.USER_CREATION_NOT_POSSIBLE));
             }
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
