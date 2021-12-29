@@ -21,8 +21,6 @@ public class UserServiceImplTest {
 
     private static final Integer USER_ID = 1;
     private static final String USER_EMAIL = "test@mail.com";
-    private static final String USER_PASSWORD = "Test123*";
-    private static final String USER_EMAIL_BAD_FORMAT = "test";
 
     @Autowired
     private UserServiceImpl userService;
@@ -64,18 +62,25 @@ public class UserServiceImplTest {
         List<User> userList = new ArrayList<>();
         userList.add(user);
 
-        Optional<User> u = Optional.of(user);
         when(userRepository.findAll()).thenReturn(userList);
-        Assert.assertEquals(userService.findAll(),u);
+        Assert.assertEquals(userService.findAll(),userList);
 
     }
 
     @Test
-    public void create_new_user_should_return_OK_200() {
+    public void create_a_new_user_should_return_OK_200() {
         User user = new User();
         user.setId(USER_ID);
         user.setEmail(USER_EMAIL);
         userService.save(user);
+    }
+
+    @Test
+    public void update_a_user_should_return_OK_200() {
+        User user = new User();
+        user.setId(USER_ID);
+        user.setEmail(USER_EMAIL);
+        userService.update(user);
     }
 
 
