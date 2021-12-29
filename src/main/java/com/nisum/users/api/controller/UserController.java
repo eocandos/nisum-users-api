@@ -58,25 +58,4 @@ public class UserController {
 
     }
 
-    /**
-     * Edit one User
-     * @param user
-     * @return ResponseEntity
-     */
-    @PutMapping("user")
-    public ResponseEntity edit(@RequestBody User user) {
-        try {
-            Optional u = userService.findOne(user.getId());
-            if(u.isPresent()) {
-                userService.save(user);
-                return ResponseEntity.ok(user);
-            } else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.ID_DONT_EXIST));
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Message(Messages.USER_EDITION_NOT_POSSIBLE));
-        }
-    }
-
-
 }
