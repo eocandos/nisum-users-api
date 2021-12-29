@@ -38,54 +38,20 @@
 			"response": []
 		},
 		{
-			"name": "Edit User",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDEzODg1LCJleHAiOjE2Mzk0MTQ0ODV9.fWn-rdlWti91nRfGipy-kf_E5VClWztrHgqSezv_6ekCMk-xVJDEupf4Ku0IOl9CxmFNyFBgz8TSzPaL2oJzmw",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"password\": 123,\n    \"token\": \"Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDEzODg1LCJleHAiOjE2Mzk0MTQ0ODV9.fWn-rdlWti91nRfGipy-kf_E5VClWztrHgqSezv_6ekCMk-xVJDEupf4Ku0IOl9CxmFNyFBgz8TSzPaL2oJzmw\",\n    \"name\": \"Erick Ocando Sanchez\",\n    \"email\": \"e@mail.com\",\n    \"phones\":  [\n            {\n                \"id\": 52,\n                \"cityCode\": \"10\",\n                \"countryCode\": \"100\",\n                \"phoneNumber\": 1111111\n            }\n        ]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://ec2-3-131-133-79.us-east-2.compute.amazonaws.com:8080/user",
-					"protocol": "http",
-					"host": [
-						"ec2-3-131-133-79",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
-					],
-					"port": "8080",
-					"path": [
-						"user"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get User list",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJuaXN1bUpXVCIsInN1YiI6Im1lZ2FuQG1haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTY0MDc0NTU5NSwiZXhwIjoxNjQwNzQ2MTk1fQ.i0bQ-G7yeQpQKckCnFtdw4UAFDlIzgNWtsnPBetqkgAAl4ub4ywrXu6-XJSa635MIZEoyCVLI4z5Zeb4PEFNug",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDI3NzEwLCJleHAiOjE2Mzk0MjgzMTB9.Km_dJg85fKEUYbcyg9wD-Outqb0AJvImvwtF3gXrtdGqwO5MdVaCOB5ezSH9wtlJXGy0FhXT7S3Dkrp6ito8Ug",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
 					"raw": "http://ec2-3-131-133-79.us-east-2.compute.amazonaws.com:8080/user",
 					"protocol": "http",

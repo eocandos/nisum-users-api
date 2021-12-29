@@ -12,41 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"password\": \"GeneralPass183*\",\n    \"name\": \"Megan Fox\",\n    \"email\": \"megan3@mail.com\",\n    \"phones\": [\n        {\n            \"cityCode\": \"10\",\n            \"countryCode\": \"100\",\n            \"phoneNumber\": 123456\n        },\n        {\n            \"cityCode\": \"25\",\n            \"countryCode\": \"24\",\n            \"phoneNumber\": 78945654\n        }\n    ]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/user",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"user"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Edit User",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDEzODg1LCJleHAiOjE2Mzk0MTQ0ODV9.fWn-rdlWti91nRfGipy-kf_E5VClWztrHgqSezv_6ekCMk-xVJDEupf4Ku0IOl9CxmFNyFBgz8TSzPaL2oJzmw",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"password\": 123,\n    \"token\": \"Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibWVnYW5AbWFpbC5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjM5NDEzODg1LCJleHAiOjE2Mzk0MTQ0ODV9.fWn-rdlWti91nRfGipy-kf_E5VClWztrHgqSezv_6ekCMk-xVJDEupf4Ku0IOl9CxmFNyFBgz8TSzPaL2oJzmw\",\n    \"name\": \"Erick Ocando Sanchez\",\n    \"email\": \"e@mail.com\",\n    \"phones\":  [\n            {\n                \"id\": 52,\n                \"cityCode\": \"10\",\n                \"countryCode\": \"100\",\n                \"phoneNumber\": 1111111\n            }\n        ]\n}",
+					"raw": "{\n    \"password\": \"GeneralPass183*\",\n    \"name\": \"Megan Fox\",\n    \"email\": \"megan@mail.com\",\n    \"phones\": [\n        {\n            \"cityCode\": \"10\",\n            \"countryCode\": \"100\",\n            \"phoneNumber\": 123456\n        },\n        {\n            \"cityCode\": \"25\",\n            \"countryCode\": \"24\",\n            \"phoneNumber\": 78945654\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -75,7 +41,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJuaXN1bUpXVCIsInN1YiI6Im1lZ2FuM0BtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDAyMjAwMDksImV4cCI6MTY0MDIyMDYwOX0.ulfQ9QPqdaAeW3zbzzctXH1FafwWUQCm03pmyyZL0veBdrxYXb7j_z9Z0i8u3pI2MD4T2GT9du7pzAcrRXe0Cg",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJuaXN1bUpXVCIsInN1YiI6Im1lZ2FuQG1haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTY0MDc0MTE0MCwiZXhwIjoxNjQwNzQxNzQwfQ.wFd-dSIzuFEKzR5k-EChA3CJ7Jo-jGWL6JAFMuhoa-s8SukEsaR3IxpMw_cwK3puGDGsFtZA3myErkPq-qa-oQ",
 							"type": "string"
 						}
 					]
