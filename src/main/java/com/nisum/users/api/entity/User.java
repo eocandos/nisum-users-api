@@ -1,11 +1,9 @@
 package com.nisum.users.api.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -18,9 +16,9 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="seq")
     private Integer id;
+
     private String password;
     private String token;
-    @Lob
     private String name;
     private String email;
 
@@ -32,4 +30,5 @@ public class User {
 
     @UpdateTimestamp
     private Date modified;
+
 }

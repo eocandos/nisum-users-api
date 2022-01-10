@@ -1,21 +1,18 @@
 package com.nisum.users.api.utils;
 
 import com.nisum.users.api.constants.Messages;
-import com.nisum.users.api.entity.Message;
 import com.nisum.users.api.entity.User;
+import com.nisum.users.api.exception.CustomException;
 
 public class UserValidations {
 
-    public static Message userData(User user) {
-        Message message = new Message("");
+    public static void userValidation(User user) throws CustomException {
         if(!EmailValidator.isValid(user.getEmail())){
-            message = new Message(Messages.INVALID_EMAIL);
+            throw new CustomException(Messages.INVALID_EMAIL);
         }
         if(!PasswordValidator.isValid(user.getPassword())) {
-            message = new Message(Messages.PLEASE_VALIDATE_PASSWORD_FORMAT);
+            throw new CustomException(Messages.PLEASE_VALIDATE_PASSWORD_FORMAT);
         }
-        return message;
     }
-
 
 }

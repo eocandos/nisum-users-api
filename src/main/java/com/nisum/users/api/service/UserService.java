@@ -1,6 +1,8 @@
 package com.nisum.users.api.service;
 
 import com.nisum.users.api.entity.User;
+import org.springframework.http.ResponseEntity;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -26,10 +28,6 @@ public interface UserService {
     /** Save new user
      * @param user
      */
-    void save(User user);
+    ResponseEntity save(User user);
 
-    /** Update user
-     * @param user
-     */
-    void update(User user);
 }

@@ -67,10 +67,5 @@ public class UserServiceImplTest {
         userService.save(user);
     }
 
-    @Test
-    public void update_a_user_should_return_OK_200() {
-        userService.update(user);
-    }
-
 
 }
