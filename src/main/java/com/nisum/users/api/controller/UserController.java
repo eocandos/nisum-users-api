@@ -14,7 +14,7 @@ public class UserController {
 
     /**
      * Get all users
-     * @return List<User>
+     * @return ResponseEntity
      */
     @GetMapping("user")
     public ResponseEntity getUsers() {

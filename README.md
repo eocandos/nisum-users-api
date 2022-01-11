@@ -1,6 +1,6 @@
-# Prueba Técnica Java para NISUM - API RESTful de creación de usuarios.
-### Autor: Erick Ocando - Fecha: 12/2021
-#### Última actualización: 28 dic 2021
+# Prueba Técnica Desarrollador Backend para NISUM - API RESTful de creación de usuarios.
+### Autor: Erick Ocando
+#### Última actualización: 11/01/2022
 
 ### Tecnologías
 
